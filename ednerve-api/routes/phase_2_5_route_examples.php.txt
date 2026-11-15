@@ -1,0 +1,25 @@
+<?php
+
+use App\Http\Controllers\Api\V1\ExampleTenantResourceController;
+use Illuminate\Support\Facades\Route;
+
+// Add inside the existing Route::prefix('v1')->group(...) block.
+// Do not create a duplicate API version group.
+Route::middleware(['auth:sanctum', 'tenant.member'])->group(function () {
+
+    // Institution-wide operation: no organization_unit_id is required.
+    Route::get('/example-resources', [ExampleTenantResourceController::class, 'index'])
+        ->middleware('permission:example_resources.view');
+
+    // Organization-scoped operation: middleware validates that the selected
+    // organization unit belongs to the active tenant before permission lookup.
+    Route::post('/example-resources', [ExampleTenantResourceController::class, 'store'])
+        ->middleware([
+            'tenant.organization',
+            'permission:example_resources.create',
+        ]);
+});
+
+// For endpoints that accept organization_unit_id as a query parameter or body
+// field, apply tenant.organization to the route. For route model binding, use
+// the {organizationUnit} parameter name.

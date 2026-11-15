@@ -1,0 +1,24 @@
+Add this import at the top of routes/api.php:
+
+use App\Http\Controllers\Api\V1\OrganizationUnitController;
+
+Inside the existing Route::middleware(['auth:sanctum', 'tenant.member'])->group(function (): void { ... }) group,
+add these routes. Keep the static /tree route before the numeric {id} route.
+
+Route::get('/organization-units', [OrganizationUnitController::class, 'index'])
+    ->middleware('permission:organization_units.view');
+
+Route::get('/organization-units/tree', [OrganizationUnitController::class, 'index'])
+    ->defaults('view', 'tree')
+    ->middleware('permission:organization_units.view');
+
+Route::post('/organization-units', [OrganizationUnitController::class, 'store'])
+    ->middleware('permission:organization_units.manage');
+
+Route::get('/organization-units/{id}', [OrganizationUnitController::class, 'show'])
+    ->whereNumber('id')
+    ->middleware('permission:organization_units.view');
+
+Route::patch('/organization-units/{id}', [OrganizationUnitController::class, 'update'])
+    ->whereNumber('id')
+    ->middleware('permission:organization_units.manage');

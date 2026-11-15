@@ -1,0 +1,17 @@
+// Add the import near the other API controller imports:
+use App\Http\Controllers\Api\V1\InstitutionProfileController;
+
+// Add this block inside routes/api.php, inside the existing Route::prefix('v1')->group(...).
+// Do not nest it inside another tenant.member group.
+
+Route::middleware(['auth:sanctum', 'tenant.member'])->group(function (): void {
+    Route::get('/institution-profile', [
+        InstitutionProfileController::class,
+        'show',
+    ])->middleware('permission:tenant.settings.view');
+
+    Route::patch('/institution-profile', [
+        InstitutionProfileController::class,
+        'update',
+    ])->middleware('permission:tenant.settings.manage');
+});

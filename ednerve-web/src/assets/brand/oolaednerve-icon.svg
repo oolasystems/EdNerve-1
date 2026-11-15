@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>OolaEdNerve</title>
+
+  <!-- Open book -->
+  <path
+    d="M7 35.5C15.2 31.4 23.8 32.4 32 38.2V55
+       C23.8 49.2 15.2 48.2 7 52.3V35.5Z"
+    fill="#1E6FFF"
+  />
+  <path
+    d="M57 35.5C48.8 31.4 40.2 32.4 32 38.2V55
+       C40.2 49.2 48.8 48.2 57 52.3V35.5Z"
+    fill="#0F2B61"
+  />
+
+  <!-- Book page highlights -->
+  <path
+    d="M11 40.5C18 37.9 24.6 39.2 30 43"
+    stroke="#FFFFFF"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M53 40.5C46 37.9 39.4 39.2 34 43"
+    stroke="#FFFFFF"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+
+  <!-- Graduation cap -->
+  <path
+    d="M5 22.5L32 9L59 22.5L32 36L5 22.5Z"
+    fill="#0F2B61"
+  />
+  <path
+    d="M17 28.5V37C25 42 39 42 47 37V28.5L32 36L17 28.5Z"
+    fill="#1E6FFF"
+  />
+
+  <!-- Tassel -->
+  <path
+    d="M56.5 23.5V34"
+    stroke="#F59E0B"
+    stroke-width="2.5"
+    stroke-linecap="round"
+  />
+  <circle cx="56.5" cy="36.5" r="2.5" fill="#F59E0B"/>
+
+  <!-- Book center -->
+  <path
+    d="M32 38.2V55"
+    stroke="#FFFFFF"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+</svg>
